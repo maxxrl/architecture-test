@@ -9,11 +9,11 @@ import java.util.List;
 @RequiredArgsConstructor
 public class InvestigationPersistentRepository implements InvestigationRepository {
 
-    private final InvestigationsJPARepository investigationsJPARepository;
+    private final InvestigationMockRepository investigationMockRepository;
 
     @Override
     public List<Investigation> findAll() {
-        return investigationsJPARepository.findAll().stream().map(this::toInvestigation).toList();
+        return investigationMockRepository.findAll().stream().map(this::toInvestigation).toList();
     }
 
     Investigation toInvestigation(InvestigationEntity entity) {
